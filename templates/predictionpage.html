@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Prediction Page
+        </title>
+        <style>
+           
+            body{
+                background-image: url('{{url_for("static",filename="heartimage1.jpg")}}');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:1400px 1300px;
+            }
+            
+            
+            .form-row{
+                display:flex;
+                flex-direction: column;
+                margin:10px 10px;
+                width:246.5px;
+               text-align:center;
+            }
+            .form-row label{
+               font-weight:bold;
+               margin-bottom:9px;
+               color:white;
+               font-size:large;
+            }
+            .form-row input{
+                border:3px solid #ccc;
+                padding:10px;
+                border-radius:8px;
+                font-size:17px;
+                background-color:black;
+                color:white;
+            }
+            .horizontal-form-container{
+                display:flex;
+                flex-wrap:wrap;
+                justify-content:center;
+                width:100%;
+                margin:20px auto;
+            }
+           button{
+            padding:10px 25px;
+            border:none;
+            border-radius:8px;
+            background-color:#007bff;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+           }
+            button:hover{
+                background-color:#0056b3;
+            }
+            .click{
+                text-align:center;
+                margin-top:80px;
+                margin-right:350px;
+            }
+              .hello{
+            width: 99%; 
+            height: 24px;
+            background:rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;       
+            padding-right: 20px;
+            }
+
+            .nav-link {
+            color:blue;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            font-size:20px;
+            text-decoration: none;
+            margin-left:20px; 
+            }
+
+            .nav-link:hover {
+            text-decoration: underline;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div class="hello">
+            <a href="/" class="nav-link">Home</a>
+        </div>
+<center><div class="pre">
+            <form class="horizontal-form-container"  method="POST" actoin="/prediction">
+                <div class="form-row">
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="gender">Gender(1=male,0=female)</label>
+                <input type="text" name="gender" id="gender" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="cp">Cp(chest pain type)(0=typical angina,
+                    1=atypical angina,
+                    2=non-anginal pain,
+                    3=asymptomatic)</label>
+                <input type="text" name="cp" id="cp" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="trestbps">Trestbps(Resting blood pressure)</label>
+                <input type="text" name="trestbps" id="trestbps" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="chol">Chol(Serum cholesterol)</label>
+                <input type="text" name="chol" id="chol" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="fbs">Fbs(fasting blood sugar)
+                    (1=true,0=false)</label>
+                <input type="text" name="fbs" id="fbs" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="restecg">Restecg(Resting electrocardiographic)
+                    (0=normal,
+                    1=ST-T wave abnormality,
+                    2=left ventricular)
+                </label>
+                <input type="text" name="restecg" id="restecg" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label>Thalach(maximum heart rate achieved)</label>
+                <input type="text" name="thalach" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="exang">Exang(exercise-induced angina)
+                    (1=yes,
+                    0=no)</label>
+                <input type="text" name="exang" id="exang" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="oldpeak">Oldpeak</label>
+                <input type="text" name="oldpeak" id="oldpeak" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label>Slope(0=upsloping,
+                            1=flat,
+                            2=downsloping) 
+                </label>
+                <input type="text" name="slope" placeholder="Enter Values" required>
+                </div> 
+
+                <div class="form-row">
+                <label for="ca">Ca(Number of major vessels)</label>
+                <input type="text" name="ca" id="ca" placeholder="Enter Values" required>
+                </div>
+
+                <div class="form-row">
+                <label for="thal">thal(thalassemia)
+                    (0=null,
+                    1=normal blood flow,
+                    2=fixed defect,
+                    3=reversible defect)</label>
+                <input type="text" name="thal" id="thal" placeholder="Enter Values" required>
+                </div>
+                <div class="click">
+                   <button type="submit">Submit</button>
+                </div>
+            </form>
+        <div class="form-row">
+        {%if result=="Presence of heart disease"%}
+             <p style="color:rgba(252, 8, 8, 0.993);font-size:35px;font-weight:bold;">{{result}}</p>
+        {%else%}
+              <p style="color:rgb(77, 248, 77);font-size:35px;font-weight:bold;">{{result}}</p>
+        {%endif%}</div>
+
+        </div>
+    </center>
+    </body>
+</html>

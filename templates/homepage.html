@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <style>
+            h2{
+                text-align: center;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size:40px;
+                font-weight:bold;
+                color:red;
+            }
+            body{
+                background-image: url('{{url_for("static",filename="heartimage7.jpg")}}');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:1400px 1300px;
+            }
+            p{
+                text-align: center;
+                color:white;
+                font-size:30px;
+
+            }
+            
+
+
+             a{            
+            padding:10px 25px;
+            border:none;
+            border-radius:10px;
+            background-color:#007bff;
+            color:white;
+            font-size:25px;
+            cursor:pointer;
+           }
+            a:hover{
+                background-color:#0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Heart Disease Prediction</h2>
+        <br>
+        <br>
+        <p> Welcome to our Heart Disease Prediction Website, an AI-powered tool designed to 
+            help users assess their risk of heart disease
+            using key health indicators such as age, blood pressure, cholesterol levels, and more.
+
+ This application is built using machine learning techniques
+ trained on the widely-used UCI Heart Disease Dataset, 
+ and aims to support early detection and awareness of cardiovascular risk. 
+ While the tool provides quick predictions based on user inputs, 
+ it is not a substitute for professional medical advice or diagnosis.
+
+ Our goal is to demonstrate how technology and healthcare can work together to empower users to make informed decisions about their well-being.
+</p>
+<br>
+
+<center>
+    <h3 style="font-size:30px;font-weight:bold;color:white;">Model accuracy score  is 80%</h3>
+</center>
+<center>
+
+  <div class="hello">
+    <a href="/prediction" >Prediction</a>
+    </div>
+    </center>
+    </body>
+</html>
